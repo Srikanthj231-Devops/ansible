@@ -1,0 +1,11 @@
+---
+- name: To modify the cron-tab on remote
+  hosts: all
+  become: true
+
+  tasks:
+  - name: Modify the exixting cron-tab
+    cron: 
+      name: Run the test script using crontab
+      state: absent
+      user: ec2-user

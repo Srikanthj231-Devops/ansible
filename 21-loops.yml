@@ -1,0 +1,15 @@
+---
+- name: User creation on the remote server
+  hosts: all
+  become: true
+
+  tasks:
+  - name: New user creation
+    user: 
+      name: "{{ item }}"
+      comment: Adding new user for information
+      shell: /bin/bash
+    loop:
+      - srikanth
+      - lasya
+      - nainika

@@ -1,0 +1,19 @@
+---
+- name: To enable nginx service from firewalld
+  hosts: all
+  become: true
+
+  tasks:
+  - name: Enable nginx from firewalld service
+    firewalld:
+      port: 80/tcp
+      permanent: true
+      state: enabled
+    notify:
+      - Reload the firewalld service after changes
+   
+  handlers:
+  - name: Reload the firewalld service after changes
+    service: 
+      name: firewalld
+      state: reloaded

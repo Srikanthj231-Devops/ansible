@@ -1,0 +1,14 @@
+---
+- name: To kill a process on remote server
+  hosts: all
+  become: true
+
+  tasks:
+  - name: Kill the process with pid
+    ignore_errors: yes
+    shell: "pgrep nginx | xargs kill"
+
+  - name: Start the nginx service again with new pid.
+    service:
+      name: nginx
+      state: started

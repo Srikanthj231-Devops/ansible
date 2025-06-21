@@ -1,0 +1,12 @@
+---
+- name: To add the environment var in crontab
+  hosts: all
+  become: true
+
+  tasks:
+  - name: To add env var in crontab
+    cron:
+      name: PATH
+      env: yes
+      user: ec2-user
+      job: /home/ec2-user/ansible/script.sh

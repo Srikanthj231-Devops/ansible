@@ -1,0 +1,17 @@
+---
+- name: To create a cron-job for a script
+  become: true
+  hosts: all
+  
+  tasks:
+  - name: Create a cron-job for the script
+    cron:
+      name: Run the test script using crontab
+      minute: 30
+      hour: 8
+      day: 10
+      month: "*"
+      weekday: "*"
+      user: ec2-user
+      job: /home/ec2-user/ansible/script.sh
+      disabled: no

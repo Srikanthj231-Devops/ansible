@@ -1,0 +1,14 @@
+---
+- name: User creation on the remote server
+  hosts: all
+  become: true
+
+  tasks:
+  - name: New user creation
+    user: 
+      name: srikanth
+      comment: Adding new user for information
+      shell: /bin/bash
+#     groups: nginx,ec2-user
+#     state: absent
+#     remove: yes

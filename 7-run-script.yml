@@ -1,0 +1,9 @@
+---
+- name: To run a script on the remote server
+  hosts: all
+  become: true
+
+  tasks:
+  - name: Running the shell script on remote server
+    shell: /home/ec2-user/ansible/script.sh
+      

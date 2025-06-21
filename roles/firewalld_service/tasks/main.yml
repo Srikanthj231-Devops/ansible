@@ -1,0 +1,11 @@
+---
+# tasks file for firewalld_service
+
+- name: Enable the service in firewalld
+  become: true
+  firewalld:
+    service: "{{ service_name }}"
+    state: enabled
+    permanent: true
+  when: ansible_os_family == "RedHat"
+  notify: Reload the firewalld service

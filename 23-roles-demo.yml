@@ -1,0 +1,6 @@
+---
+- name: To install httpd and enable firewalld service
+  hosts: all
+  roles:
+    - httpd_setup
+    - firewalld_service

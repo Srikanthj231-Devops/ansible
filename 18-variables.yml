@@ -1,0 +1,20 @@
+---
+- name: Using tags to run the playbook for a single task.
+  hosts: all
+  become: true
+  vars:
+  - app: nginx
+
+  tasks:
+  - name: Install nginx eackage
+    yum:
+      name: "{{ app }}"
+      state: present
+    tags: i-nginx
+
+  - name: Start the nginx service
+    service:
+      name: "{{ app }}"
+      state: started
+      enabled: true
+    tags: ss-nginx

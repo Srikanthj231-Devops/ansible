@@ -1,0 +1,12 @@
+--- 
+- name: To change the permissions of a existing file
+  hosts: all
+  become: true
+
+  tasks:
+  - name: Changing the permissions of a existing file on remote server.
+    file:
+      path: /home/ec2-user/srikanth
+      owner: root
+      group: root
+      mode: 0777

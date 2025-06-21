@@ -1,0 +1,20 @@
+---
+- name: File module
+  hosts: all
+  become: true
+
+  tasks:
+  - name: To create a file
+    file:
+      path: /tmp/nainika.txt
+      state: absent
+      owner: ec2-user
+      group: ec2-user
+      mode: ogu=rw 
+  - name: To create a directory
+    file:
+      path: /tmp/lasya
+      state: absent
+      owner: ec2-user
+      group: ec2-user
+      mode: o=rw,g=r,o=r

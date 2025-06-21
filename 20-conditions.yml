@@ -1,0 +1,23 @@
+---
+- name: Installing a package and starting the service
+  hosts: all
+  become: true
+
+  tasks:
+  - name: Install nginx eackage
+    yum:
+      name: nginx
+      state: present
+    when: ansible_os_family == "RedHat"
+
+  - name: Install nginx eackage
+    apt:
+      name: apache2
+      state: present
+    when: ansible_os_family == "Ubuntu"  
+
+  - name: Start the nginx service
+    service:
+      name: nginx
+      state: started
+      enabled: true

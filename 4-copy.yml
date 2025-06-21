@@ -1,0 +1,14 @@
+---
+- name: Copying the files to ec2 instance
+  hosts: all
+  become: true
+
+  tasks:
+  - name: Copy the files from local to ec2 instance
+    copy:
+        src: /Users/c2076490/TF-AWS/Ansible/1-ping.yml 
+        dest: /tmp/
+        owner: ec2-user
+        group: ec2-user
+        mode: 0777
+        backup: true

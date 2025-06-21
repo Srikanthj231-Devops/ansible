@@ -1,0 +1,12 @@
+---
+- name: To set password for a user
+  hosts: all
+  become: true
+
+  tasks:
+  - name: Setting password for a user on remote server
+    user:
+      name: srikanth
+      update_password: always      
+      password: "{{'srikanth' | password_hash('sha512')}}"
+       

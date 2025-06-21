@@ -1,0 +1,8 @@
+---
+- name: To start a process on remote server
+  hosts: all
+  become: true
+ 
+  tasks:
+  - name: start the nginx server on remote.
+    shell: "systemctl start nginx"
